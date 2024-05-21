@@ -1,0 +1,81 @@
+use guvidbdesign
+
+create table course_info(
+course_id int primary key,
+course_name varchar(60)
+);
+
+create table batch_info(
+batch_id int primary key,
+batch_name varchar(50)
+);
+
+create table task_info(
+task_id int primary key,
+task_name varchar (250)
+);
+
+create table attendence_info(
+attendence_id int primary key,
+attendence varchar(20)
+);
+
+create table topics_info(
+topic_id int primary key,
+topic_name varchar(150)
+);
+
+create table assesment_info(
+assesment_id int primary key,
+assesment_name varchar(250)
+);
+
+create table feedback_info(
+feedback_id int primary key,
+feedback varchar(250)
+);
+
+create table mentor_info(
+mentor_id int primary key,
+mentor_name varchar(50),
+conatct varchar(150),
+batch_id int,
+foreign key(batch_id) references batch_info(batch_id),
+course_id int,
+foreign key(course_id) references course_info(course_id),
+topic_id int,
+foreign key(topic_id) references topics_info(topic_id),
+feedback_id int,
+foreign key(feedback_id) references feedback_info(feedback_id)
+);
+
+create table query_info(
+query_id int primary key,
+query_name varchar (250),
+mentor_id int,
+foreign key(mentor_id) references mentor_info(mentor_id)
+);
+
+create table student_info(
+student_id int primary key,
+student_name varchar(50),
+email varchar(100),
+contact varchar(20),
+address varchar(100),
+batch_id int,
+foreign key(batch_id) references batch_info(batch_id),
+course_id int,
+foreign key(course_id) references course_info(course_id),
+mentor_id int,
+foreign key(mentor_id) references mentor_info(mentor_id),
+task_id int,
+foreign key(task_id) references task_info(task_id),
+assesment_id int,
+foreign key(assesment_id) references assesment_info(assesment_id),
+attendence_id int,
+foreign key(attendence_id) references attendence_info(attendence_id),
+query_id int,
+foreign key(query_id) references query_info(query_id),
+feedback_id int,
+foreign key(feedback_id) references feedback_info(feedback_id)
+);
