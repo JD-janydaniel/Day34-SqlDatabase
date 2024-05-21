@@ -16,4 +16,4 @@
   <li>quert_info</li>
   <li>student_info</li>
 </ul>
-<li>And also created an EER Diagram</li>
+<li>And also created and displayed the tables in the EER Diagram</li>
